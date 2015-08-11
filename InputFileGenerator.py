@@ -23,17 +23,16 @@ def main():
 			file = open(fileName + str(size), 'w')
 			
 			#create sequence of numbers
-			while (len(numbers) < size and len(numbersList) <= size):
-				for item in range(size):
-					if (fileName == "Random"):	
-						temp = random.randint(0,size) #creates random file, 0 duplicates 
-						numbers.add(temp)
-					elif (fileName == "Ascending"):   #creates an ascending file
-						temp = item
-						numbersList.append(temp)
-					else:					           #creates descending file
-						temp = size - item
-						numbersList.append(temp)
+			for item in range(size):
+				if (fileName == "Random"):	
+					temp = random.randint(0,size) #creates random file, 0 duplicates 
+					numbers.add(temp)
+				elif (fileName == "Ascending"):   #creates an ascending file
+					temp = item
+					numbersList.append(temp)
+				else:					           #creates descending file
+					temp = size - item
+					numbersList.append(temp)
 						
 						
 			#convert set to list to shuffle it

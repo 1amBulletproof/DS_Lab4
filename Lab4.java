@@ -1,6 +1,7 @@
 /**
 * This is the Lab4 driver class. 
-* <p> </p>
+* <p>Generally speaking it takes an input file and sorts it in ascending order while logging the time.
+* The algorithm makes a copy of the original input array for each sort so that the original order is preserved</p>
 * 
 * @author Brandon Tarney
 * @version 1.0  8/8/15
@@ -11,116 +12,168 @@ import java.util.*;
 public class Lab4 
 {
 
-//
-//    static RuntimeMetric metrics;
-
-    
    /**
-    * 
+    * Main Lab4 Driver Method
     */
    public static void main(String [] args)
     {
+
+        RuntimeMetric totalMetrics = new RuntimeMetric(System.nanoTime());        
+
         //initial declarations
+        String errorMsg;
 
         
-
-
-        int []a={3,5,1,2,4, 13, 7, 10, 22, 6, 55};
-        
-
-        //increments: Note I added extra increments to account for larger size files
-        int []increments1 = {-1, 1, 4, 13, 40, 121, 364, 1093, 3280, 9841};
-        int []increments2 = {-1, 1, 5, 17, 53, 149, 373, 1123, 3371, 10114 };
-        int []increments3 = {-1, 1, 10, 30, 60, 120, 360, 1080, 3240, 9720};
-        int []increments4 = {-1, 1, 2, 4, 16, 256, 512, 1024, 2048, 4096, 8192};//custom increments
-        for (int count = 0; count < 5; count++)
+        //Main Driving Algorithm
+        if (args.length != 2)               //Error Handling for < or > 2 file arguments
         {
-            int []b = Arrays.copyOf(a, a.length);
-            System.out.println("Original, Unsorted, array");
-            for(int i=0;i<b.length;i++)
+            errorMsg = "There should be an input file followed by an output file, "
+                + "you gave me something else. Please try again.";
+            System.out.println(errorMsg); 
+        } 
+        else  
+        {
+            try
             {
-                System.out.print(b[i] + " ");
-            }
-            System.out.println();
-            switch (count)
-            {
-                case 0: 
-                    System.out.println("Shell Sort " + count);
-                    ShellSortIterative.shellSort(b, increments1);
-                    for(int i=0;i<b.length;i++)
+                FileIO file = new FileIO(args[0], args[1]);
+                
+                int size = file.getNumLines();
+                int [] a = new int[size];
+                int index = 0;
+                //create the input array
+                while (file.hasNextLine())
+                {
+                    a[index] = Integer.parseInt(file.getNextLine());
+                    index++;
+                }
+                file.writeOutput("Original, Unsorted, array");
+                if (a.length == 50)
+                {
+                    for(int i=0;i<a.length;i++)
                     {
-                        System.out.print(b[i] + " ");
-                    }
-                    break;
-                case 1:
-                    System.out.println("Shell Sort " + count);
-                    ShellSortIterative.shellSort(b, increments2);
-                    for(int i=0;i<b.length;i++)
+                        file.writeOutput(a[i] + " ");
+                    }                    
+                }
+
+                
+                //Shell Sort increments: Note I added extra increments to account for larger size files
+                int []increments1 = {-1, 1, 4, 13, 40, 121, 364, 1093, 3280, 9841};
+                int []increments2 = {-1, 1, 5, 17, 53, 149, 373, 1123, 3371, 10114 };
+                int []increments3 = {-1, 1, 10, 30, 60, 120, 360, 1080, 3240, 9720};
+                int []increments4 = {-1, 1, 2, 4, 16, 256, 512, 1024, 2048, 4096, 8192};//custom increments
+                
+                //5 sorts per file, Copy input array each time and sort it
+                for (int count = 0; count < 5; count++)
+                {
+                    int []b = Arrays.copyOf(a, a.length);
+
+                    file.writeOutput("");
+                    switch (count)
                     {
-                        System.out.print(b[i] + " ");
+                        case 0:
+                            RuntimeMetric ss1 = new RuntimeMetric(System.nanoTime());
+                            ShellSortIterative.shellSort(b, increments1);
+                            ss1.setEndTime(System.nanoTime());
+//                            System.out.println("Shell Sort " + (count + 1)  + " Runtime: " + ss1.totalRuntime());
+                            file.writeOutput("Shell Sort " + (count + 1)  + " Runtime: " + ss1.totalRuntime());
+                            if (b.length == 50)
+                            {
+                                for(int i=0;i<b.length;i++)
+                                {
+                                    file.writeOutput(b[i] + " ");
+                                }  
+                            }
+
+                            break;
+                            
+                        case 1:
+                            RuntimeMetric ss2 = new RuntimeMetric(System.nanoTime());
+                            ShellSortIterative.shellSort(b, increments2);
+                            ss2.setEndTime(System.nanoTime());
+//                            System.out.println("Shell Sort " + (count + 1)  + " Runtime: " + ss2.totalRuntime());
+                            file.writeOutput("Shell Sort " + (count + 1)  + " Runtime: " + ss2.totalRuntime());
+                            if (b.length == 50)
+                            {
+                                for(int i=0;i<b.length;i++)
+                                {
+                                    file.writeOutput(b[i] + " ");
+                                }  
+                            }
+                            break;
+                            
+                        case 2:
+                            RuntimeMetric ss3 = new RuntimeMetric(System.nanoTime());
+                            ShellSortIterative.shellSort(b, increments3);
+                            ss3.setEndTime(System.nanoTime());
+//                            System.out.println("Shell Sort " + (count + 1) + " Runtime: " + ss3.totalRuntime());
+                            file.writeOutput("Shell Sort " + (count + 1) + " Runtime: " + ss3.totalRuntime());
+                            if (b.length == 50)
+                            {
+                                for(int i=0;i<b.length;i++)
+                                {
+                                    file.writeOutput(b[i] + " ");
+                                }  
+                            }
+                            break;
+                            
+                        case 3:
+                            RuntimeMetric ss4 = new RuntimeMetric(System.nanoTime());
+                            ShellSortIterative.shellSort(b, increments4);
+                            ss4.setEndTime(System.nanoTime());
+//                            System.out.println("Shell Sort " + (count + 1)  + " Runtime: " + ss4.totalRuntime());
+                            file.writeOutput("Shell Sort " + (count + 1)  + " Runtime: " + ss4.totalRuntime());
+                            if (b.length == 50)
+                            {
+                                for(int i=0;i<b.length;i++)
+                                {
+                                    file.writeOutput(b[i] + " ");
+                                }  
+                            }
+                            break;
+                            
+                        case 4:
+                            RuntimeMetric hs1 = new RuntimeMetric(System.nanoTime());
+                            HeapSortIterative.heapSort(b);
+                            hs1.setEndTime(System.nanoTime());
+
+//                            System.out.println("Heap Sort Runtime: " + hs1.totalRuntime());
+                            file.writeOutput("Heap Sort Runtime: " + hs1.totalRuntime());
+                            if (b.length == 50)
+                            {
+                                for(int i=0;i<b.length;i++)
+                                {
+                                    file.writeOutput(b[i] + " ");
+                                }  
+                            }
+                            break;
                     }
-                    break;
-                case 2:
-                    System.out.println("Shell Sort " + count);
-                    ShellSortIterative.shellSort(b, increments3);
-                    for(int i=0;i<b.length;i++)
-                    {
-                        System.out.print(b[i] + " ");
-                    }
-                    break;
-                case 3:
-                    System.out.println("Shell Sort " + count);
-                    ShellSortIterative.shellSort(b, increments4);
-                    for(int i=0;i<b.length;i++)
-                    {
-                        System.out.print(b[i] + " ");
-                    }
-                    break;
-                case 4:
-                    HeapSortIterative.heapSort(b);
-                    System.out.println("Heap Sort");
-                    for(int i=0;i<b.length;i++)
-                    {
-                        System.out.print(b[i] + " ");
-                    }
-                    break;
-            }
-            System.out.println();
+//                    System.out.println();
+//                    System.out.println();
+                    file.writeOutput("");
+                    file.writeOutput("");
                     
 
-
+                
+                }
+                file.closeOutput();
+                
+            }
+            catch (Exception e) //this exception should be generated for the fileIO input
+            {
+                System.out.println(e);
+                System.out.println("There was an input or output file parameter issue");  
+            }//end catch
         }
 
+        //runtime metrics
+        totalMetrics.setEndTime(System.nanoTime());                  
 
-
-//
-//        //Main Driving Algorithm
-//        if (args.length != 2)               //Error Handling for < or > 2 file arguments
-//        {
-//            errorMsg = "There should be an input file followed by an output file, "
-//                + "you gave me something else. Please try again.";
-//            System.out.println(errorMsg); 
-//        } else                              //good input arguments
-//        {
-//            try                             //cautiously initialize File I/O
-//            {
-//                File_IO fileIO = new File_IO(args[0], args[1]);              
-//                           
-//			}//end try
-//            catch (Exception e)//this exception should be generated for the fileIO input
-//            {
-//                System.out.println(e);
-//                System.out.println("There was an input or output file parameter issue");  
-//            }//end catch
-//        }//end if/else
-//        
-//        //runtime metrics
-//        end = System.nanoTime();                    
-//        totalRuntime = new RuntimeMetric(end - start);
-//        
-//        //report program status
-//        System.out.println("\nThe program has completed, please check your output file for the results");
-//        System.out.println("The Program took " + metrics.getRuntime() + " nano seconds");
+        
+        //report program status
+        System.out.println("\nThe program has completed, please check your output file for the results");
+        System.out.println("The Program took " + totalMetrics.totalRuntime() + " nano seconds");
+        
+        
     }//end of main method
 
 }//end of lab2 class

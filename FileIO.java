@@ -58,6 +58,25 @@ public class FileIO {
     }
     
     /**
+     * calculates number of lines in the file
+     * 
+     * @return number of lines
+     * @throws FileNotFoundException
+     */
+    public int getNumLines() throws FileNotFoundException
+    {
+        Scanner tempScanner = new Scanner(inputFile);
+        int counter = 0;
+        while (tempScanner.hasNextLine())
+        {
+            counter++;
+            tempScanner.nextLine();
+        }
+        return counter;
+    }
+    
+    
+    /**
      * Writes a line to the output file
      * 
      * @param output    what to write to the output file (a string value)

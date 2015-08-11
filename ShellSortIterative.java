@@ -8,7 +8,7 @@
 class ShellSortIterative {
 	public static void shellSort(int[] a, int[] increments) 
         {
-//		int increment = a.length / 2;
+
             int index = 0;
             while (increments[index] < a.length )
             {
@@ -29,10 +29,7 @@ class ShellSortIterative {
                     a[j] = temp;
                 }
                 increment = increments[--index];
-//                    if (increment == 4) {
-//                            increment = 1;
-//                    } else {
-//                            increment *= (5.0 / 11);
+
                     
             }
         }
