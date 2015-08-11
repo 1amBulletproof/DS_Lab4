@@ -10,7 +10,9 @@ public class HeapSortIterative
 
 	public static void heapSort(int[] a)
 	{
-		int count = a.length;
+            
+            
+            int count = a.length;
 	 
 		//first place a in max-heap order
 		heapify(a, count);

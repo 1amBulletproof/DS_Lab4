@@ -22,22 +22,74 @@ public class Lab4
     {
         //initial declarations
 
-		//testing Sorting functionality
-		int []a1={3,5,1,2,4};
-		  	HeapSortIterative.heapSort(a1);
-		  	for(int i=0;i<a1.length;i++)
-			{
-		  		System.out.print(a1[i] + " ");
-			}
+        
 
-		System.out.println();
 
-		int []a2={3,5,1,2,4, 13, 7, 55};
-		  	ShellSortIterative.shell(a2);
-		  	for(int i=0;i<a2.length;i++)
-			{
-		  		System.out.print(a2[i] + " ");
-			}
+        int []a={3,5,1,2,4, 13, 7, 10, 22, 6, 55};
+        
+
+        //increments: Note I added extra increments to account for larger size files
+        int []increments1 = {-1, 1, 4, 13, 40, 121, 364, 1093, 3280, 9841};
+        int []increments2 = {-1, 1, 5, 17, 53, 149, 373, 1123, 3371, 10114 };
+        int []increments3 = {-1, 1, 10, 30, 60, 120, 360, 1080, 3240, 9720};
+        int []increments4 = {-1, 1, 2, 4, 16, 256, 512, 1024, 2048, 4096, 8192};//custom increments
+        for (int count = 0; count < 5; count++)
+        {
+            int []b = Arrays.copyOf(a, a.length);
+            System.out.println("Original, Unsorted, array");
+            for(int i=0;i<b.length;i++)
+            {
+                System.out.print(b[i] + " ");
+            }
+            System.out.println();
+            switch (count)
+            {
+                case 0: 
+                    System.out.println("Shell Sort " + count);
+                    ShellSortIterative.shellSort(b, increments1);
+                    for(int i=0;i<b.length;i++)
+                    {
+                        System.out.print(b[i] + " ");
+                    }
+                    break;
+                case 1:
+                    System.out.println("Shell Sort " + count);
+                    ShellSortIterative.shellSort(b, increments2);
+                    for(int i=0;i<b.length;i++)
+                    {
+                        System.out.print(b[i] + " ");
+                    }
+                    break;
+                case 2:
+                    System.out.println("Shell Sort " + count);
+                    ShellSortIterative.shellSort(b, increments3);
+                    for(int i=0;i<b.length;i++)
+                    {
+                        System.out.print(b[i] + " ");
+                    }
+                    break;
+                case 3:
+                    System.out.println("Shell Sort " + count);
+                    ShellSortIterative.shellSort(b, increments4);
+                    for(int i=0;i<b.length;i++)
+                    {
+                        System.out.print(b[i] + " ");
+                    }
+                    break;
+                case 4:
+                    HeapSortIterative.heapSort(b);
+                    System.out.println("Heap Sort");
+                    for(int i=0;i<b.length;i++)
+                    {
+                        System.out.print(b[i] + " ");
+                    }
+                    break;
+            }
+            System.out.println();
+                    
+
+
+        }
 
 
 

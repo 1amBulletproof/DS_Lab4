@@ -1,28 +1,39 @@
 /**
  * Shell Sort for sorting an array of integers.
  * @param array the array to be sorted
-*@author http://rosettacode.org/wiki/Sorting_algorithms/Shell_sort#Java
+*@author modified by Brandon Tarney: Original Source: http://rosettacode.org/wiki/Sorting_algorithms/Shell_sort#Java
 *@see http://rosettacode.org/wiki/Sorting_algorithms/Shell_sort#Java
  */
 
 class ShellSortIterative {
-	public static void shell(int[] a) {
-		int increment = a.length / 2;
-		while (increment > 0) {
-			for (int i = increment; i < a.length; i++) {
-				int j = i;
-				int temp = a[i];
-				while (j >= increment && a[j - increment] > temp) {
-					a[j] = a[j - increment];
-					j = j - increment;
-				}
-				a[j] = temp;
-			}
-			if (increment == 2) {
-				increment = 1;
-			} else {
-				increment *= (5.0 / 11);
-			}
-		}
-	}
+	public static void shellSort(int[] a, int[] increments) 
+        {
+//		int increment = a.length / 2;
+            int index = 0;
+            while (increments[index] < a.length )
+            {
+                index++;
+            }
+            index--;//move to an index smaller than array length
+            int increment = increments[index-1]; // move to the index 2 smaller than the array size
+            while (increment > 0) 
+            {
+                for (int i = increment; i < a.length; i++) 
+                {
+                    int j = i;
+                    int temp = a[i];
+                    while (j >= increment && a[j - increment] > temp) {
+                            a[j] = a[j - increment];
+                            j = j - increment;
+                    }
+                    a[j] = temp;
+                }
+                increment = increments[--index];
+//                    if (increment == 4) {
+//                            increment = 1;
+//                    } else {
+//                            increment *= (5.0 / 11);
+                    
+            }
+        }
 }
