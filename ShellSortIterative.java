@@ -10,7 +10,7 @@ class ShellSortIterative {
         {
 
             int index = 0;
-            while (increments[index] < a.length )
+            while (index != (increments.length - 1) && increments[index] < a.length )
             {
                 index++;
             }

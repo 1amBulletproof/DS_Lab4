@@ -160,8 +160,9 @@ public class Lab4
             }
             catch (Exception e) //this exception should be generated for the fileIO input
             {
+                System.out.println("There was an Error:");  
                 System.out.println(e);
-                System.out.println("There was an input or output file parameter issue");  
+
             }//end catch
         }
 
