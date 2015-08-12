@@ -92,6 +92,8 @@ public class FileIO {
     public void closeOutput()
     {
         printer.close();
+        inputScanner.close();
+        
     }
     
     
