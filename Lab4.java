@@ -75,7 +75,7 @@ public class Lab4
                             ShellSortIterative.shellSort(b, increments1);
                             ss1.setEndTime(System.nanoTime());
 //                            System.out.println("Shell Sort " + (count + 1)  + " Runtime: " + ss1.totalRuntime());
-                            file.writeOutput("Shell Sort " + (count + 1)  + " Runtime: " + ss1.totalRuntime());
+                            file.writeOutput("Shell Sort " + (count + 1)  + " Runtime: " + ss1.totalRuntime() + " nano seconds");
                             if (b.length == 50)
                             {
                                 for(int i=0;i<b.length;i++)
@@ -91,7 +91,7 @@ public class Lab4
                             ShellSortIterative.shellSort(b, increments2);
                             ss2.setEndTime(System.nanoTime());
 //                            System.out.println("Shell Sort " + (count + 1)  + " Runtime: " + ss2.totalRuntime());
-                            file.writeOutput("Shell Sort " + (count + 1)  + " Runtime: " + ss2.totalRuntime());
+                            file.writeOutput("Shell Sort " + (count + 1)  + " Runtime: " + ss2.totalRuntime() + " nano seconds");
                             if (b.length == 50)
                             {
                                 for(int i=0;i<b.length;i++)
@@ -106,7 +106,7 @@ public class Lab4
                             ShellSortIterative.shellSort(b, increments3);
                             ss3.setEndTime(System.nanoTime());
 //                            System.out.println("Shell Sort " + (count + 1) + " Runtime: " + ss3.totalRuntime());
-                            file.writeOutput("Shell Sort " + (count + 1) + " Runtime: " + ss3.totalRuntime());
+                            file.writeOutput("Shell Sort " + (count + 1) + " Runtime: " + ss3.totalRuntime() + " nano seconds");
                             if (b.length == 50)
                             {
                                 for(int i=0;i<b.length;i++)
@@ -121,7 +121,7 @@ public class Lab4
                             ShellSortIterative.shellSort(b, increments4);
                             ss4.setEndTime(System.nanoTime());
 //                            System.out.println("Shell Sort " + (count + 1)  + " Runtime: " + ss4.totalRuntime());
-                            file.writeOutput("Shell Sort " + (count + 1)  + " Runtime: " + ss4.totalRuntime());
+                            file.writeOutput("Shell Sort " + (count + 1)  + " Runtime: " + ss4.totalRuntime() + " nano seconds");
                             if (b.length == 50)
                             {
                                 for(int i=0;i<b.length;i++)
@@ -137,7 +137,7 @@ public class Lab4
                             hs1.setEndTime(System.nanoTime());
 
 //                            System.out.println("Heap Sort Runtime: " + hs1.totalRuntime());
-                            file.writeOutput("Heap Sort Runtime: " + hs1.totalRuntime());
+                            file.writeOutput("Heap Sort Runtime: " + hs1.totalRuntime() + " nano seconds");
                             if (b.length == 50)
                             {
                                 for(int i=0;i<b.length;i++)

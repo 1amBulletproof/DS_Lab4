@@ -50,7 +50,7 @@ Original, Unsorted, array
 2 
 1 
 
-Shell Sort 1 Runtime: 272000
+Shell Sort 1 Runtime: 252000 nano seconds
 1 
 2 
 3 
@@ -104,7 +104,7 @@ Shell Sort 1 Runtime: 272000
 
 
 
-Shell Sort 2 Runtime: 13000
+Shell Sort 2 Runtime: 14000 nano seconds
 1 
 2 
 3 
@@ -158,7 +158,7 @@ Shell Sort 2 Runtime: 13000
 
 
 
-Shell Sort 3 Runtime: 13000
+Shell Sort 3 Runtime: 13000 nano seconds
 1 
 2 
 3 
@@ -212,7 +212,7 @@ Shell Sort 3 Runtime: 13000
 
 
 
-Shell Sort 4 Runtime: 14000
+Shell Sort 4 Runtime: 14000 nano seconds
 1 
 2 
 3 
@@ -266,7 +266,7 @@ Shell Sort 4 Runtime: 14000
 
 
 
-Heap Sort Runtime: 241000
+Heap Sort Runtime: 236000 nano seconds
 1 
 2 
 3 

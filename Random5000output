@@ -1,21 +1,21 @@
 Original, Unsorted, array
 
-Shell Sort 1 Runtime: 2293000
+Shell Sort 1 Runtime: 2724000 nano seconds
 
 
 
-Shell Sort 2 Runtime: 1401000
+Shell Sort 2 Runtime: 1602000 nano seconds
 
 
 
-Shell Sort 3 Runtime: 401000
+Shell Sort 3 Runtime: 395000 nano seconds
 
 
 
-Shell Sort 4 Runtime: 327000
+Shell Sort 4 Runtime: 351000 nano seconds
 
 
 
-Heap Sort Runtime: 2260000
+Heap Sort Runtime: 2289000 nano seconds
 
 
