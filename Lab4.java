@@ -56,11 +56,12 @@ public class Lab4
                 }
 
                 
-                //Shell Sort increments: Note I added extra increments to account for larger size files
+                //Shell Sort increments: Note I added extra increments to accoun
+                //"-1" is for stopping case
                 int []increments1 = {-1, 1, 4, 13, 40, 121, 364, 1093, 3280, 9841};
                 int []increments2 = {-1, 1, 5, 17, 53, 149, 373, 1123, 3371, 10114 };
                 int []increments3 = {-1, 1, 10, 30, 60, 120, 360, 1080, 3240, 9720};
-                int []increments4 = {-1, 1, 2, 4, 16, 256, 512, 1024, 2048, 4096, 8192};//custom increments
+                int []increments4 = {-1, 1, 4, 16, 256, 512, 1024, 2048, 4096, 8192};//custom increments
                 
                 //5 sorts per file, Copy input array each time and sort it
                 for (int count = 0; count < 5; count++)
